@@ -13,7 +13,7 @@ module.exports = {
       }
 
       return message.channel
-        .send(`A remoção da mensagem é ${config.PRUNING ? "**ativado**" : "**desativado**"}`)
+        .send(`A remoção da mensagem é ${config.PRUNING ? "**<:On:817710696703459370>**" : "**<:Off:817710657247379456>**"}`)
         .catch(console.error);
     });
   }

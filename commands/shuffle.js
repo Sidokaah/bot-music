@@ -5,7 +5,7 @@ module.exports = {
   aliases: ["embaralhar"],
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return message.channel.send(`<:WavveAlert:725021943811538976> **${message.author.username}**, Não há música tocando no momento!`).catch(console.error);
+    if (!queue) return message.channel.send(`<a:v_alert:853079364651450418> **${message.author.username}**, Não há música tocando no momento!`).catch(console.error);
     if (!canModifyQueue(message.member)) return;
 
     let songs = queue.songs;
@@ -15,6 +15,6 @@ module.exports = {
     }
     queue.songs = songs;
     message.client.queue.set(message.guild.id, queue);
-    queue.textChannel.send(`<:WavveTrue:724514898788220961> **${message.author.username}**, embaralhou a fila.`).catch(console.error);
+    queue.textChannel.send(`<:certo_rosa:828670887326646312> **${message.author.username}**, embaralhou a fila.`).catch(console.error);
   }
 };

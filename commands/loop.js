@@ -11,7 +11,7 @@ module.exports = {
     // toggle from false to true and reverse
     queue.loop = !queue.loop;
     return queue.textChannel
-      .send(`Loop agora ${queue.loop ? "**on**" : "**off**"}`)
+      .send(`Loop agora ${queue.loop ? "**<:On:817710696703459370>**" : "**<:Off:817710657247379456>**"}`)
       .catch(console.error);
   }
 };

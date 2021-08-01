@@ -8,11 +8,11 @@ module.exports = {
   aliases: ['procurar'],
   async execute(message, args) {
     if (!args.length)
-      return message.channel.send(`<:Error_Wavve:724400612535697408> **${message.author.username}**, Uso correto: ${message.client.prefix}${module.exports.name} <Video Name>`).catch(console.error);
+      return message.channel.send(`<:errado_rosa:828670964903575562> **${message.author.username}**, Uso correto: ${message.client.prefix}${module.exports.name} <Video Name>`).catch(console.error);
     if (message.channel.activeCollector)
       return message.channel.send("Um coletor de mensagens já está ativo neste canal.");
     if (!message.member.voice.channel)
-      return message.channel.send(`<:WavveAlert:725021943811538976> **${message.author.username}**, Entre em um canal e tente novamente!`).catch(console.error);
+      return message.channel.send(`<a:v_alert:853079364651450418> **${message.author.username}**, Entre em um canal e tente novamente!`).catch(console.error);
 
     const search = args.join(" ");
 

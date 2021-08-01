@@ -6,9 +6,9 @@ module.exports = {
   execute(message, args) {
     const queue = message.client.queue.get(message.guild.id);
 
-    if (!queue) return message.channel.send(`<:WavveAlert:725021943811538976> **${message.author.username}**, Não há música tocando no momento!`).catch(console.error);
+    if (!queue) return message.channel.send(`<a:v_alert:853079364651450418> **${message.author.username}**, Não há música tocando no momento!`).catch(console.error);
     if (!canModifyQueue(message.member))
-      return message.channel.send(`<:WavveAlert:725021943811538976> **${message.author.username}**, Entre em um canal e tente novamente!`).catch(console.error);
+      return message.channel.send(`<a:v_alert:853079364651450418> **${message.author.username}**, Entre em um canal e tente novamente!`).catch(console.error);
 
     if (!args[0]) return message.channel.send(`<a:Volume_Wavve:715589150358896703> **${message.author.username}**, O volume atual é: __${queue.volume}%__`).catch(console.error);
     if (isNaN(args[0])) return message.channel.send(`<:WavveAlert:725021943811538976> **${message.author.username}**, Por favor, use um número para definir o volume.`).catch(console.error);

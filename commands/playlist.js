@@ -14,19 +14,19 @@ module.exports = {
 
     const serverQueue = message.client.queue.get(message.guild.id);
     if (serverQueue && channel !== message.guild.me.voice.channel)
-      return message.channel.send(`<:Error_Wavve:724400612535697408> **${message.author.username}**, Você deve estar no mesmo canal que **${message.client.user}**`).catch(console.error);
+      return message.channel.send(`<:errado_rosa:828670964903575562> **${message.author.username}**, Você deve estar no mesmo canal que **${message.client.user}**`).catch(console.error);
 
     if (!args.length)
       return message
-        .send(`<:Error_Wavve:724400612535697408> **${message.author.username}**, Uso correto: ${message.client.prefix}playlist <YouTube Playlist URL | Playlist Name>`)
+        .send(`<:errado_rosa:828670964903575562> **${message.author.username}**, Uso correto: ${message.client.prefix}playlist <YouTube Playlist URL | Playlist Name>`)
         .catch(console.error);
-    if (!channel) return message.channel.send(`<:WavveAlert:725021943811538976> **${message.author.username}**, Você precisa ingressar em um canal de voz primeiro!`).catch(console.error);
+    if (!channel) return message.channel.send(`<a:v_alert:853079364651450418> **${message.author.username}**, Você precisa ingressar em um canal de voz primeiro!`).catch(console.error);
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT"))
-      return message.channel.send(`<:Error_Wavve:724400612535697408> **${message.author.username}**, Não é possível conectar ao canal de voz, talvez esteja faltando permissões!`);
+      return message.channel.send(`<:errado_rosa:828670964903575562> **${message.author.username}**, Não é possível conectar ao canal de voz, talvez esteja faltando permissões!`);
     if (!permissions.has("SPEAK"))
-      return message.channel.send(`<:Error_Wavve:724400612535697408> **${message.author.username}**, Não consigo falar neste canal de voz, verifique se tenho as permissões adequadas!`);
+      return message.channel.send(`<:errado_rosa:828670964903575562> **${message.author.username}**, Não consigo falar neste canal de voz, verifique se tenho as permissões adequadas!`);
 
     const search = args.join(" ");
     const pattern = /^.*(youtu.be\/|list=)([^#\&\?]*).*/gi;
@@ -53,7 +53,7 @@ module.exports = {
         videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
       } catch (error) {
         console.error(error);
-        return message.channel.send(`<:Error_Wavve:724400612535697408> **${message.author.username}**, Lista de reprodução não encontrada :(`).catch(console.error);
+        return message.channel.send(`<:errado_rosa:828670964903575562> **${message.author.username}**, Lista de reprodução não encontrada :(`).catch(console.error);
       }
     } else {
       try {
@@ -62,7 +62,7 @@ module.exports = {
         videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 100, { part: "snippet" });
       } catch (error) {
         console.error(error);
-        return message.channel.send(`<:Error_Wavve:724400612535697408> **${message.author.username}**, Lista de reprodução não encontrada :(`).catch(console.error);
+        return message.channel.send(`<:errado_rosa:828670964903575562> **${message.author.username}**, Lista de reprodução não encontrada :(`).catch(console.error);
       }
     }
 
@@ -77,7 +77,7 @@ module.exports = {
         serverQueue.songs.push(song);
         if (!PRUNING)
           message.channel
-            .send(`<:Adicionei_Wavve:715578961878319157> **${song.title}** foi adicionado à fila por **${message.author.username}**`)
+            .send(`<:certo_rosa:828670887326646312> **${song.title}** foi adicionado à fila por **${message.author.username}**`)
             .catch(console.error);
       } else {
         queueConstruct.songs.push(song);
@@ -94,10 +94,10 @@ module.exports = {
       playlistEmbed.setDescription(queueConstruct.songs.map((song, index) => `${index + 1}. ${song.title}`));
       if (playlistEmbed.description.length >= 2048)
         playlistEmbed.description =
-          playlistEmbed.description.substr(0, 2007) + `\n<:Error_Wavve:724400612535697408> **${message.author.username}**, Lista de reprodução maior que o limite de caracteres...`;
+          playlistEmbed.description.substr(0, 2007) + `\n<:errado_rosa:828670964903575562> **${message.author.username}**, Lista de reprodução maior que o limite de caracteres...`;
     }
 
-    message.channel.send(`<:Adicionei_Wavve:715578961878319157> **${message.author.username}** Iniciou uma lista de reprodução.`, playlistEmbed);
+    message.channel.send(`<:certo_rosa:828670887326646312> **${message.author.username}** Iniciou uma lista de reprodução.`, playlistEmbed);
 
     if (!serverQueue) message.client.queue.set(message.guild.id, queueConstruct);
 
@@ -110,7 +110,7 @@ module.exports = {
         console.error(error);
         message.client.queue.delete(message.guild.id);
         await channel.leave();
-        return message.channel.send(`<:Error_Wavve:724400612535697408> **${message.author.username}**, Não foi possível conectar no canal: **${error}**`).catch(console.error);
+        return message.channel.send(`<:errado_rosa:828670964903575562> **${message.author.username}**, Não foi possível conectar no canal: **${error}**`).catch(console.error);
       }
     }
   }
