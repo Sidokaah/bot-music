@@ -85,7 +85,7 @@ client.on("message", async (message) => {
       if (now < expirationTime) {
         const timeLeft = (expirationTime - now) / 1000;
         return message.reply(
-          `por favor, espere ${timeLeft.toFixed(1)} segundo(s) antes de reutilizar o \`${command.name}\` comando.`
+          `Por favor, espere ${timeLeft.toFixed(1)} segundo(s) antes de reutilizar o \`${command.name}\` comando.`
         );
       }
     }
@@ -97,7 +97,7 @@ client.on("message", async (message) => {
       command.execute(message, args);
     } catch (error) {
       console.error(error);
-      message.channel.send(`<:Error_Wavve:724400612535697408> **${message.author.username}**, Ocorreu um erro ao executar esse comando.`).catch(console.error);
+      message.channel.send(`<:errado_rosa:828670964903575562> **${message.author.username}**, Ocorreu um erro ao executar esse comando.`).catch(console.error);
     }
   }
 

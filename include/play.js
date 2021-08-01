@@ -10,7 +10,7 @@ module.exports = {
     if (!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id);
-      return queue.textChannel.send("<:WavveTrue:724514898788220961> Limpei a fila & desconectei do canal").catch(console.error);
+      return queue.textChannel.send("<:certo_rosa:828670887326646312> Limpei a fila & desconectei do canal").catch(console.error);
     }
 
     let stream = null;
@@ -61,7 +61,7 @@ module.exports = {
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
 
     try {
-      var playingMessage = await queue.textChannel.send(`<a:Wavve_CD:715551752803319909> Tocando: **${song.title}** - (${song.url})`);
+      var playingMessage = await queue.textChannel.send(`<a:azul_cdRDM:871231604465479710> Tocando: **${song.title}** - (${song.url})`);
       await playingMessage.react("⏭");
       await playingMessage.react("⏯");
       await playingMessage.react("🔁");
@@ -95,11 +95,11 @@ module.exports = {
           if (queue.playing) {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.pause(true);
-            queue.textChannel.send(`<:Pause_Wavve:724360712637644922> **${message.author.username}**, pausou a música.`).catch(console.error);
+            queue.textChannel.send(`:pause_button: **${message.author.username}**, pausou a música.`).catch(console.error);
           } else {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.resume();
-            queue.textChannel.send(`<a:Volume_Wavve:715589150358896703> **${message.author.username}**, retomou a música!`).catch(console.error);
+            queue.textChannel.send(`<a:azul_cdRDM:871231604465479710> **${message.author.username}**, retomou a música!`).catch(console.error);
           }
           break;
 
@@ -107,14 +107,14 @@ module.exports = {
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return;
           queue.loop = !queue.loop;
-          queue.textChannel.send(`Loop agora ${queue.loop ? "**on**" : "**off**"}`).catch(console.error);
+          queue.textChannel.send(`Loop agora ${queue.loop ? "**<:On:817710696703459370>**" : "**<:Off:817710657247379456>**"}`).catch(console.error);
           break;
 
         case "⏹":
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return;
           queue.songs = [];
-          queue.textChannel.send(`<:Pause_Wavve:724360712637644922> ${message.author.username} parou a música!`).catch(console.error);
+          queue.textChannel.send(`:pause_button: ${message.author.username} parou a música!`).catch(console.error);
           try {
             queue.connection.dispatcher.end();
           } catch (error) {
